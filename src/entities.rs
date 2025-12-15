@@ -5,7 +5,6 @@ pub struct Player {
     pub money: i32,
     pub position: i32,
 }
-
 pub struct Property{
     pub name: String,
     pub price: i32,
@@ -68,6 +67,10 @@ impl Board{
         spaces.push(Property::new(String::from("Income Tax"), 0));
         spaces.push(Property::new(String::from("Reading Railroad"), 200));
         Board {spaces}
+    }
+    
+    pub fn get_space(&self, position:i32) -> &Property{
+        &self.spaces[position as usize]
     }
 }
 impl Printable for Player {
